@@ -3,13 +3,16 @@ using UnityEngine;
 
 public class Thief : MonoBehaviour
 {
+    public static int IsWalking = Animator.StringToHash(nameof(IsWalking));
+
     [SerializeField] private Waypoints _waypoints;
     [SerializeField] private float _speed;
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator _animator;
     private Queue<Transform> _forwardWaypoints = new Queue<Transform>();
     private Stack<Transform> _backwardWaypoints = new Stack<Transform>();
     private Transform _currentWaypoint;
     private float _checkInDistance = 0.2f;
+    private bool _isWalking = false;
 
     private void Awake()
     {
@@ -27,7 +30,7 @@ public class Thief : MonoBehaviour
         {
             if ((_forwardWaypoints.Count == 0) && (_backwardWaypoints.Count == 0))
             {
-                animator.SetBool("IsWalking", false);
+                _animator.SetBool(IsWalking, _isWalking);
                 return;
             }
 

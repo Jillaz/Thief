@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Alarm : MonoBehaviour
@@ -7,31 +8,23 @@ public class Alarm : MonoBehaviour
     [SerializeField] private float _defaultAlarmVolume = 0f;
     private float _minVolume = 0f;
     private float _maxVolume = 1f;
-    private bool _isThiefSpotted = false;
+    private Coroutine _coroutine;
 
     private void Awake()
     {
         _audioSource.volume = _defaultAlarmVolume;
     }
 
-    private void Update()
-    {
-        if (_audioSource.isPlaying)
-        {
-            ChangeVolume();
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Thief thief))
         {
-            _isThiefSpotted = true;
-
             if (_audioSource.isPlaying == false)
             {
                 _audioSource.Play();
             }
+            
+            InitCoroutine(_maxVolume);
         }
     }
 
@@ -39,22 +32,30 @@ public class Alarm : MonoBehaviour
     {
         if (other.TryGetComponent(out Thief thief))
         {
-            _isThiefSpotted = false;
+            InitCoroutine(_minVolume);
         }
     }
 
-    private void ChangeVolume()
-    {       
-        if (_isThiefSpotted)
+    private void InitCoroutine(float volumeLevel)
+    {
+        if (_coroutine != null)
         {
-            _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, _maxVolume, _volumeChangingStep * Time.deltaTime);
-        }
-        else
-        {
-            _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, _minVolume, _volumeChangingStep * Time.deltaTime);
+            StopCoroutine(_coroutine);
         }
 
-        if (_audioSource.volume <= _minVolume)
+        _coroutine = StartCoroutine(ChangeVolume(volumeLevel));
+    }
+
+    private IEnumerator ChangeVolume(float targetVolumeLevel)
+    {
+        while (_audioSource.volume != targetVolumeLevel)
+        {
+            _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, targetVolumeLevel, _volumeChangingStep * Time.deltaTime);
+
+            yield return null;
+        }
+
+        if (_audioSource.volume == _minVolume)
         {
             _audioSource.Stop();
         }
