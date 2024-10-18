@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 135218517}
   - component: {fileID: 135218520}
   - component: {fileID: 135218519}
-  - component: {fileID: 135218522}
   - component: {fileID: 135218521}
   m_Layer: 0
   m_Name: Waypoint (1)
@@ -230,18 +229,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &135218522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135218516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f39a33888b94e49a801d4806a496fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &207333420
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +345,6 @@ GameObject:
   - component: {fileID: 233730229}
   - component: {fileID: 233730232}
   - component: {fileID: 233730231}
-  - component: {fileID: 233730234}
   - component: {fileID: 233730233}
   m_Layer: 0
   m_Name: Waypoint (3)
@@ -455,18 +441,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &233730234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233730228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f39a33888b94e49a801d4806a496fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &599083433
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +452,6 @@ GameObject:
   - component: {fileID: 599083434}
   - component: {fileID: 599083437}
   - component: {fileID: 599083436}
-  - component: {fileID: 599083439}
   - component: {fileID: 599083438}
   m_Layer: 0
   m_Name: Waypoint (2)
@@ -575,18 +548,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &599083439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599083433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f39a33888b94e49a801d4806a496fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &644116716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,8 +1625,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waypoints: {fileID: 1983952144}
-  _speed: 2
-  animator: {fileID: 1829359251}
+  _speed: 4
+  _animator: {fileID: 1829359251}
 --- !u!54 &1829359249
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2092,7 +2053,6 @@ GameObject:
   - component: {fileID: 2064939423}
   - component: {fileID: 2064939426}
   - component: {fileID: 2064939425}
-  - component: {fileID: 2064939428}
   - component: {fileID: 2064939427}
   m_Layer: 0
   m_Name: Waypoint
@@ -2189,18 +2149,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2064939428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064939422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f39a33888b94e49a801d4806a496fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

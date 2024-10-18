@@ -17,7 +17,7 @@ public class Alarm : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Thief thief))
+        if (other.TryGetComponent(out Thief _))
         {
             if (_audioSource.isPlaying == false)
             {
@@ -30,7 +30,7 @@ public class Alarm : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out Thief thief))
+        if (other.TryGetComponent(out Thief _))
         {
             InitCoroutine(_minVolume);
         }
